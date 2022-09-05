@@ -1,4 +1,4 @@
-enum PokeError: Error {
+enum CustomError: Error {
     case invalidURL
     case invalidData
     case decodedError

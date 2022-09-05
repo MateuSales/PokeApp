@@ -1,6 +1,6 @@
 import UIKit
 
-final class PokeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     private let pokemonNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,32 +37,33 @@ final class PokeViewController: UIViewController {
         return label
     }()
     
-    private var pokemonID = 1
+    private let presenter: HomePresenting
+    
+    init(presenter: HomePresenting) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) { nil }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        pokemonIDLabel.text = "Pokemon ID: \(pokemonID)"
-        stepper.addTarget(self, action: #selector(stepperChanged), for: .valueChanged)
-        
-        addViewsInHierarchy()
-        setupConstraints()
-        
-        makeRequest { [weak self] result in
-            switch result {
-            case .success(let pokemon):
-                self?.handleSuccess(pokemon)
-            case .failure:
-                self?.showAlert()
-            }
-        }
+        initialSetup()
+        presenter.fetchPokemon()
     }
 }
 
 // MARK: - Layout
 
-private extension PokeViewController {
+private extension HomeViewController {
+    func initialSetup() {
+        view.backgroundColor = .white
+        stepper.addTarget(self, action: #selector(stepperChanged), for: .valueChanged)
+        addViewsInHierarchy()
+        setupConstraints()
+    }
+
     func addViewsInHierarchy() {
         [
             pokemonNameLabel,
@@ -95,35 +96,9 @@ private extension PokeViewController {
     }
 }
 
-// MARK: - Use Cases
+// MARK: - Privat Methods
 
-private extension PokeViewController {
-    func makeRequest(completion: @escaping (Result<Pokemon, PokeError>) -> Void) {
-        guard let url = URL(
-            string: "https://pokeapi.co/api/v2/pokemon/\(pokemonID)/"
-        ) else {
-            return completion(.failure(.invalidURL))
-        }
-
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            DispatchQueue.main.async {
-                guard error == nil else {
-                    return completion(.failure(.requestError))
-                }
-                
-                if let data = data {
-                    guard let pokemon = try? JSONDecoder().decode(Pokemon.self, from: data) else {
-                        return completion(.failure(.decodedError))
-                    }
-                    
-                    completion(.success(pokemon))
-                } else {
-                    completion(.failure(.invalidData))
-                }
-            }
-        }.resume()
-    }
-    
+private extension HomeViewController {
     func showAlert() {
         let alertController = UIAlertController(
             title: "Error",
@@ -134,32 +109,25 @@ private extension PokeViewController {
         alertController.addAction(.init(title: "OK", style: .default))
         present(alertController, animated: true)
     }
-    
-    func handleSuccess(_ pokemon: Pokemon) {
-        pokemonNameLabel.text = pokemon.name.uppercased()
         
-        guard let urlImage = URL(string: pokemon.sprites.other.official.urlImage) else { return }
-        DispatchQueue.global().async {
-            guard let data = try? Data(contentsOf: urlImage),
-                  let imagePokemon = UIImage(data: data) else { return }
-            
-            DispatchQueue.main.async {
-                self.pokemonImageView.image = imagePokemon
-            }
-        }
+    @objc func stepperChanged(_ sender: UIStepper) {
+        presenter.updateID(Int(sender.value))
+    }
+}
+
+// MARK: - HomePresenterDelegate
+
+extension HomeViewController: HomePresenterDelegate {
+    func displayImage(with image: UIImage) {
+        pokemonImageView.image = image
     }
     
-    @objc func stepperChanged(_ sender: UIStepper) {
-        pokemonID = Int(sender.value)
-        pokemonIDLabel.text = "Pokemon ID: \(pokemonID)"
-        
-        makeRequest { [weak self] result in
-            switch result {
-            case .success(let pokemon):
-                self?.handleSuccess(pokemon)
-            case .failure:
-                self?.showAlert()
-            }
-        }
+    func displayPokemon(with viewModel: HomeViewModel) {
+        pokemonNameLabel.text = viewModel.pokemonName
+        pokemonIDLabel.text = viewModel.pokemonIDText
+    }
+    
+    func displayError() {
+        showAlert()
     }
 }

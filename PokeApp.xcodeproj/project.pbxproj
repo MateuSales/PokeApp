@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE17CBC428C59705009B1CDE /* PokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBC328C59705009B1CDE /* PokeViewController.swift */; };
-		CE17CBC628C59A3B009B1CDE /* PokeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBC528C59A3B009B1CDE /* PokeError.swift */; };
+		CE17CBC428C59705009B1CDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBC328C59705009B1CDE /* HomeViewController.swift */; };
+		CE17CBC628C59A3B009B1CDE /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBC528C59A3B009B1CDE /* CustomError.swift */; };
+		CE17CBC828C66662009B1CDE /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBC728C66662009B1CDE /* HomePresenter.swift */; };
+		CE17CBCD28C667EF009B1CDE /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBCC28C667EF009B1CDE /* HomeService.swift */; };
+		CE17CBCF28C672D2009B1CDE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBCE28C672D2009B1CDE /* HomeViewModel.swift */; };
+		CE17CBD128C675A0009B1CDE /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBD028C675A0009B1CDE /* HomeFactory.swift */; };
 		CEEE97F528C5895B0071BED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE97F428C5895B0071BED0 /* AppDelegate.swift */; };
-		CEEE97F728C5895B0071BED0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE97F628C5895B0071BED0 /* SceneDelegate.swift */; };
 		CEEE97FE28C5895C0071BED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FD28C5895C0071BED0 /* Assets.xcassets */; };
 		CEEE980128C5895C0071BED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FF28C5895C0071BED0 /* LaunchScreen.storyboard */; };
 		CEEE980928C58D140071BED0 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE980828C58D140071BED0 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE17CBC328C59705009B1CDE /* PokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeViewController.swift; sourceTree = "<group>"; };
-		CE17CBC528C59A3B009B1CDE /* PokeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeError.swift; sourceTree = "<group>"; };
+		CE17CBC328C59705009B1CDE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CE17CBC528C59A3B009B1CDE /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		CE17CBC728C66662009B1CDE /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		CE17CBCC28C667EF009B1CDE /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		CE17CBCE28C672D2009B1CDE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CE17CBD028C675A0009B1CDE /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
 		CEEE97F128C5895B0071BED0 /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEE97F428C5895B0071BED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEEE97F628C5895B0071BED0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CEEE97FD28C5895C0071BED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEEE980028C5895C0071BED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEEE980228C5895C0071BED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +45,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE17CBC928C666B6009B1CDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEEE980828C58D140071BED0 /* Pokemon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE17CBCA28C666C2009B1CDE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CE17CBC328C59705009B1CDE /* HomeViewController.swift */,
+				CE17CBC728C66662009B1CDE /* HomePresenter.swift */,
+				CE17CBCC28C667EF009B1CDE /* HomeService.swift */,
+				CE17CBCE28C672D2009B1CDE /* HomeViewModel.swift */,
+				CE17CBD028C675A0009B1CDE /* HomeFactory.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CE17CBD228C67638009B1CDE /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CE17CBC528C59A3B009B1CDE /* CustomError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		CEEE97E828C5895B0071BED0 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +92,10 @@
 		CEEE97F328C5895B0071BED0 /* PokeApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE17CBD228C67638009B1CDE /* Error */,
+				CE17CBCA28C666C2009B1CDE /* Home */,
+				CE17CBC928C666B6009B1CDE /* Model */,
 				CEEE97F428C5895B0071BED0 /* AppDelegate.swift */,
-				CEEE97F628C5895B0071BED0 /* SceneDelegate.swift */,
-				CE17CBC328C59705009B1CDE /* PokeViewController.swift */,
-				CEEE980828C58D140071BED0 /* Pokemon.swift */,
-				CE17CBC528C59A3B009B1CDE /* PokeError.swift */,
 				CEEE97FD28C5895C0071BED0 /* Assets.xcassets */,
 				CEEE97FF28C5895C0071BED0 /* LaunchScreen.storyboard */,
 				CEEE980228C5895C0071BED0 /* Info.plist */,
@@ -140,11 +173,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE17CBC428C59705009B1CDE /* PokeViewController.swift in Sources */,
-				CE17CBC628C59A3B009B1CDE /* PokeError.swift in Sources */,
+				CE17CBCD28C667EF009B1CDE /* HomeService.swift in Sources */,
+				CE17CBC428C59705009B1CDE /* HomeViewController.swift in Sources */,
+				CE17CBC628C59A3B009B1CDE /* CustomError.swift in Sources */,
+				CE17CBCF28C672D2009B1CDE /* HomeViewModel.swift in Sources */,
 				CEEE980928C58D140071BED0 /* Pokemon.swift in Sources */,
 				CEEE97F528C5895B0071BED0 /* AppDelegate.swift in Sources */,
-				CEEE97F728C5895B0071BED0 /* SceneDelegate.swift in Sources */,
+				CE17CBC828C66662009B1CDE /* HomePresenter.swift in Sources */,
+				CE17CBD128C675A0009B1CDE /* HomeFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
