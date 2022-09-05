@@ -1,9 +1,9 @@
 import UIKit
+import SnapKit
 
 final class HomeViewController: UIViewController {
     private let pokemonNameLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textAlignment = .center
         label.textColor = .darkGray
@@ -13,14 +13,12 @@ final class HomeViewController: UIViewController {
     
     private let pokemonImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private let stepper: UIStepper = {
         let stepper = UIStepper()
-        stepper.translatesAutoresizingMaskIntoConstraints = false
         stepper.maximumValue = 100
         stepper.minimumValue = 1
         stepper.value = 1
@@ -29,7 +27,6 @@ final class HomeViewController: UIViewController {
     
     private let pokemonIDLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 17)
         label.textAlignment = .center
         label.textColor = .darkGray
@@ -76,23 +73,27 @@ private extension HomeViewController {
     }
     
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            pokemonNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
-            pokemonNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            pokemonNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            
-            pokemonImageView.topAnchor.constraint(equalTo: pokemonNameLabel.bottomAnchor, constant: 40),
-            pokemonImageView.heightAnchor.constraint(equalToConstant: 280),
-            pokemonImageView.widthAnchor.constraint(equalToConstant: 280),
-            pokemonImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            stepper.topAnchor.constraint(equalTo: pokemonImageView.bottomAnchor, constant: 40),
-            stepper.leadingAnchor.constraint(equalTo: pokemonImageView.leadingAnchor, constant: 20),
-            
-            pokemonIDLabel.leadingAnchor.constraint(equalTo: stepper.trailingAnchor, constant: 30),
-            pokemonIDLabel.trailingAnchor.constraint(equalTo: pokemonImageView.trailingAnchor),
-            pokemonIDLabel.centerYAnchor.constraint(equalTo: stepper.centerYAnchor)
-        ])
+        pokemonNameLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(80)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        pokemonImageView.snp.makeConstraints {
+            $0.top.equalTo(pokemonNameLabel.snp.bottom).offset(40)
+            $0.size.equalTo(280)
+            $0.centerX.equalToSuperview()
+        }
+        
+        stepper.snp.makeConstraints {
+            $0.top.equalTo(pokemonImageView.snp.bottom).offset(40)
+            $0.leading.equalTo(pokemonImageView.snp.leading).offset(20)
+        }
+        
+        pokemonIDLabel.snp.makeConstraints {
+            $0.leading.equalTo(stepper.snp.trailing).offset(30)
+            $0.trailing.equalTo(pokemonImageView.snp.trailing)
+            $0.centerY.equalTo(stepper.snp.centerY)
+        }
     }
 }
 
