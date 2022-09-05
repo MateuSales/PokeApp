@@ -108,6 +108,15 @@ private extension HomeViewController {
         )
         
         alertController.addAction(.init(title: "OK", style: .default))
+        
+        let tryAgainAction = UIAlertAction(
+            title: "Tentar novamente",
+            style: .default) { [weak self] _ in
+                self?.presenter.fetchPokemon()
+        }
+
+        alertController.addAction(tryAgainAction)
+        
         present(alertController, animated: true)
     }
         
