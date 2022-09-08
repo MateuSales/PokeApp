@@ -35,6 +35,10 @@ class ViewController: UIViewController {
                 self?.showAlert()
             }
         }
+
+        DispatchQueue.main.async {
+            self.presentOnboardinIfNeeded()
+        }
     }
 
     func makeRequest(completion: @escaping (Result<Pokemon, PokeError>) -> Void) {
@@ -101,5 +105,16 @@ class ViewController: UIViewController {
             }
         }
     }
-}
+    
+    func presentOnboardinIfNeeded() {
+        let wasSeen = UserDefaults.standard.bool(forKey: "onboarding_was_seen")
 
+        if !wasSeen {
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let onboardingViewController = storyboard.instantiateViewController(identifier: "Onboarding")
+            onboardingViewController.modalPresentationStyle = .fullScreen
+            present(onboardingViewController, animated: true)
+            UserDefaults.standard.set(true, forKey: "onboarding_was_seen")
+        }
+    }
+}
