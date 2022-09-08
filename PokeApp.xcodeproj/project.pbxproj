@@ -13,11 +13,22 @@
 		CE17CBCD28C667EF009B1CDE /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBCC28C667EF009B1CDE /* HomeService.swift */; };
 		CE17CBCF28C672D2009B1CDE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBCE28C672D2009B1CDE /* HomeViewModel.swift */; };
 		CE17CBD128C675A0009B1CDE /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17CBD028C675A0009B1CDE /* HomeFactory.swift */; };
+		CE4416DF28CA99E800FF18FC /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4416DE28CA99E800FF18FC /* HomePresenterTests.swift */; };
 		CEEE97F528C5895B0071BED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE97F428C5895B0071BED0 /* AppDelegate.swift */; };
 		CEEE97FE28C5895C0071BED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FD28C5895C0071BED0 /* Assets.xcassets */; };
 		CEEE980128C5895C0071BED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FF28C5895C0071BED0 /* LaunchScreen.storyboard */; };
 		CEEE980928C58D140071BED0 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE980828C58D140071BED0 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE4416D828CA99CC00FF18FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEEE97E928C5895B0071BED0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEEE97F028C5895B0071BED0;
+			remoteInfo = PokeApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CE17CBC328C59705009B1CDE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +37,8 @@
 		CE17CBCC28C667EF009B1CDE /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		CE17CBCE28C672D2009B1CDE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CE17CBD028C675A0009B1CDE /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		CE4416D428CA99CC00FF18FC /* PokeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4416DE28CA99E800FF18FC /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
 		CEEE97F128C5895B0071BED0 /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEE97F428C5895B0071BED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEE97FD28C5895C0071BED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +48,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE4416D128CA99CC00FF18FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEEE97EE28C5895B0071BED0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,10 +93,27 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		CE4416D528CA99CC00FF18FC /* PokeAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE4416DD28CA99D900FF18FC /* Home */,
+			);
+			path = PokeAppTests;
+			sourceTree = "<group>";
+		};
+		CE4416DD28CA99D900FF18FC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CE4416DE28CA99E800FF18FC /* HomePresenterTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		CEEE97E828C5895B0071BED0 = {
 			isa = PBXGroup;
 			children = (
 				CEEE97F328C5895B0071BED0 /* PokeApp */,
+				CE4416D528CA99CC00FF18FC /* PokeAppTests */,
 				CEEE97F228C5895B0071BED0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				CEEE97F128C5895B0071BED0 /* PokeApp.app */,
+				CE4416D428CA99CC00FF18FC /* PokeAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +144,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CE4416D328CA99CC00FF18FC /* PokeAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE4416DC28CA99CC00FF18FC /* Build configuration list for PBXNativeTarget "PokeAppTests" */;
+			buildPhases = (
+				CE4416D028CA99CC00FF18FC /* Sources */,
+				CE4416D128CA99CC00FF18FC /* Frameworks */,
+				CE4416D228CA99CC00FF18FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE4416D928CA99CC00FF18FC /* PBXTargetDependency */,
+			);
+			name = PokeAppTests;
+			productName = PokeAppTests;
+			productReference = CE4416D428CA99CC00FF18FC /* PokeAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CEEE97F028C5895B0071BED0 /* PokeApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEEE980528C5895C0071BED0 /* Build configuration list for PBXNativeTarget "PokeApp" */;
@@ -133,6 +189,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					CE4416D328CA99CC00FF18FC = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = CEEE97F028C5895B0071BED0;
+					};
 					CEEE97F028C5895B0071BED0 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -152,11 +212,19 @@
 			projectRoot = "";
 			targets = (
 				CEEE97F028C5895B0071BED0 /* PokeApp */,
+				CE4416D328CA99CC00FF18FC /* PokeAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CE4416D228CA99CC00FF18FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEEE97EF28C5895B0071BED0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,6 +237,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE4416D028CA99CC00FF18FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE4416DF28CA99E800FF18FC /* HomePresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEEE97ED28C5895B0071BED0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -186,6 +262,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		CE4416D928CA99CC00FF18FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEEE97F028C5895B0071BED0 /* PokeApp */;
+			targetProxy = CE4416D828CA99CC00FF18FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		CEEE97FF28C5895C0071BED0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -198,6 +282,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CE4416DA28CA99CC00FF18FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sales.mentor.nnt.com.PokeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokeApp.app/PokeApp";
+			};
+			name = Debug;
+		};
+		CE4416DB28CA99CC00FF18FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sales.mentor.nnt.com.PokeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokeApp.app/PokeApp";
+			};
+			name = Release;
+		};
 		CEEE980328C5895C0071BED0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -367,6 +485,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE4416DC28CA99CC00FF18FC /* Build configuration list for PBXNativeTarget "PokeAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE4416DA28CA99CC00FF18FC /* Debug */,
+				CE4416DB28CA99CC00FF18FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CEEE97EC28C5895B0071BED0 /* Build configuration list for PBXProject "PokeApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
