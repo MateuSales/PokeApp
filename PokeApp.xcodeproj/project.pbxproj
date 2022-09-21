@@ -13,7 +13,6 @@
 		CEEE97FC28C5895B0071BED0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FA28C5895B0071BED0 /* Main.storyboard */; };
 		CEEE97FE28C5895C0071BED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FD28C5895C0071BED0 /* Assets.xcassets */; };
 		CEEE980128C5895C0071BED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FF28C5895C0071BED0 /* LaunchScreen.storyboard */; };
-		CEEE980928C58D140071BED0 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE980828C58D140071BED0 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		CEEE97FD28C5895C0071BED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEEE980028C5895C0071BED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEEE980228C5895C0071BED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEEE980828C58D140071BED0 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +59,6 @@
 				CEEE97F428C5895B0071BED0 /* AppDelegate.swift */,
 				CEEE97F628C5895B0071BED0 /* SceneDelegate.swift */,
 				CEEE97F828C5895B0071BED0 /* ViewController.swift */,
-				CEEE980828C58D140071BED0 /* Pokemon.swift */,
 				CEEE97FA28C5895B0071BED0 /* Main.storyboard */,
 				CEEE97FD28C5895C0071BED0 /* Assets.xcassets */,
 				CEEE97FF28C5895C0071BED0 /* LaunchScreen.storyboard */,
@@ -142,7 +139,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEE97F928C5895B0071BED0 /* ViewController.swift in Sources */,
-				CEEE980928C58D140071BED0 /* Pokemon.swift in Sources */,
 				CEEE97F528C5895B0071BED0 /* AppDelegate.swift in Sources */,
 				CEEE97F728C5895B0071BED0 /* SceneDelegate.swift in Sources */,
 			);
