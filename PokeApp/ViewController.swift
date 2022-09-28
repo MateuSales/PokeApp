@@ -3,8 +3,8 @@ import UIKit
 enum CustomError: Error {
     case invalidURL
     case requestError
-    case emptyData
-    case decodeError
+    case dataEmpty
+    case decodedError
 }
 
 class ViewController: UIViewController {
@@ -33,7 +33,8 @@ class ViewController: UIViewController {
             case .success(let pokemon):
                 self.handleSuccess(pokemon: pokemon)
             case .failure:
-                self.showAlert()
+                print(">>> Error")
+                // No futuro vamos colocar um alerta para mostrar pro usuário que deu erro
             }
         }
     }
@@ -47,70 +48,60 @@ class ViewController: UIViewController {
             case .success(let pokemon):
                 self.handleSuccess(pokemon: pokemon)
             case .failure:
-                self.showAlert()
+                print(">>> Error")
+                // No futuro vamos colocar um alerta para mostrar pro usuário que deu erro
             }
         }
     }
     
-    func makeRequest(completion: @escaping (Result<Pokemon, CustomError>) -> Void) {
-        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(pokemonID)") else {
+    private func makeRequest(completion: @escaping (Result<Pokemon, CustomError>) -> Void) {
+        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(pokemonID)/") else {
             completion(.failure(.invalidURL))
             return
         }
-
+        
         let urlRequest = URLRequest(url: url)
 
         URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             DispatchQueue.main.async {
-                guard error == nil else {
+                if error != nil {
                     completion(.failure(.requestError))
                     return
                 }
                 
                 guard let data else {
-                    completion(.failure(.emptyData))
+                    completion(.failure(.dataEmpty))
                     return
                 }
                 
-                guard let pokemon = try? JSONDecoder().decode(Pokemon.self, from: data) else {
-                    completion(.failure(.decodeError))
-                    return
+                if let pokemon = try? JSONDecoder().decode(Pokemon.self, from: data) {
+                    completion(.success(pokemon))
+                } else {
+                    completion(.failure(.decodedError))
                 }
-                
-                completion(.success(pokemon))
             }
         }.resume()
     }
     
-    func handleSuccess(pokemon: Pokemon) {
+    private func handleSuccess(pokemon: Pokemon) {
         name.text = pokemon.name.uppercased()
+        downloadImage(url: pokemon.sprites.other.official.urlImage)
+    }
+    
+    private func downloadImage(url: String) {
+        guard let url = URL(string: url) else { return }
         
-        guard let url = URL(string: pokemon.sprites.other.official.urlImage) else {
-            return
-        }
-
-        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, _ in
-            guard let data else {
-                return
-            }
-            let pokemonImage = UIImage(data: data)
+        let urlRequest = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            guard let data else { return }
+            
+            let uiImage = UIImage(data: data)
 
             DispatchQueue.main.async {
-                self.image.image = pokemonImage
+                self.image.image = uiImage
             }
         }.resume()
-    }
-    
-    func showAlert() {
-        let alertController = UIAlertController(
-            title: "Deu ruim :(",
-            message: "Tivemos problemas na requisição!!! Tente novamente mais tarde :)",
-            preferredStyle: .alert
-        )
-        
-        alertController.addAction(.init(title: "OK", style: .default))
-        
-        present(alertController, animated: true)
     }
 }
 
