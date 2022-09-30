@@ -18,9 +18,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        image.backgroundColor = .lightGray
-        
+                
         stepper.value = 1
         stepper.minimumValue = 1
         stepper.maximumValue = 898
@@ -33,8 +31,7 @@ class ViewController: UIViewController {
             case .success(let pokemon):
                 self.handleSuccess(pokemon: pokemon)
             case .failure:
-                print(">>> Error")
-                // No futuro vamos colocar um alerta para mostrar pro usuário que deu erro
+                self.showAlert()
             }
         }
     }
@@ -48,8 +45,7 @@ class ViewController: UIViewController {
             case .success(let pokemon):
                 self.handleSuccess(pokemon: pokemon)
             case .failure:
-                print(">>> Error")
-                // No futuro vamos colocar um alerta para mostrar pro usuário que deu erro
+                self.showAlert()
             }
         }
     }
@@ -102,6 +98,16 @@ class ViewController: UIViewController {
                 self.image.image = uiImage
             }
         }.resume()
+    }
+    
+    private func showAlert() {
+        let alertController = UIAlertController(
+            title: "Tivemos um problema :(",
+            message: "Tente novamente mais tarde",
+            preferredStyle: .alert
+        )
+        alertController.addAction(.init(title: "OK", style: .default))
+        present(alertController, animated: true)
     }
 }
 
