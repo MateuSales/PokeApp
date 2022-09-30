@@ -1,30 +1,51 @@
 import UIKit
 
-enum CustomError: Error {
-    case invalidURL
-    case requestError
-    case dataEmpty
-    case decodedError
-}
-
 class ViewController: UIViewController {
 
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var idLabel: UILabel!
-    @IBOutlet weak var stepper: UIStepper!
+    private let pokemonNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.numberOfLines = 0
+        return label
+    }()
 
-    private var pokemonID = 0
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-                
+    private let pokemonImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    private let pokemonIDLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .right
+        label.font = UIFont.systemFont(ofSize: 16)
+        return label
+    }()
+    
+    private let stepper: UIStepper = {
+        let stepper = UIStepper()
+        stepper.translatesAutoresizingMaskIntoConstraints = false
         stepper.value = 1
         stepper.minimumValue = 1
         stepper.maximumValue = 898
+        return stepper
+    }()
+
+    private var pokemonID = 1
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        pokemonID = Int(stepper.value)
-        idLabel.text = "Pokemon ID: \(pokemonID)"
+        stepper.addTarget(self, action: #selector(stepperChanged), for: .valueChanged)
+        view.backgroundColor = .white
+        pokemonIDLabel.text = "Pokemon ID: \(pokemonID)"
+        
+        addViewsCorrectly()
+        setupConstraints()
         
         makeRequest { result in
             switch result {
@@ -36,9 +57,10 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func stepperChanged(_ sender: UIStepper) {
-        pokemonID = Int(sender.value)
-        idLabel.text = "Pokemon ID: \(pokemonID)"
+    @objc
+    func stepperChanged() {
+        pokemonID = Int(stepper.value)
+        pokemonIDLabel.text = "Pokemon ID: \(pokemonID)"
         
         makeRequest { result in
             switch result {
@@ -80,7 +102,7 @@ class ViewController: UIViewController {
     }
     
     private func handleSuccess(pokemon: Pokemon) {
-        name.text = pokemon.name.uppercased()
+        pokemonNameLabel.text = pokemon.name.uppercased()
         downloadImage(url: pokemon.sprites.other.official.urlImage)
     }
     
@@ -95,7 +117,7 @@ class ViewController: UIViewController {
             let uiImage = UIImage(data: data)
 
             DispatchQueue.main.async {
-                self.image.image = uiImage
+                self.pokemonImageView.image = uiImage
             }
         }.resume()
     }
@@ -109,6 +131,35 @@ class ViewController: UIViewController {
         
         alertController.addAction(.init(title: "OK", style: .default))
         present(alertController, animated: true)
+    }
+    
+    // MARK: Layout
+    
+    private func addViewsCorrectly() {
+        view.addSubview(pokemonNameLabel)
+        view.addSubview(pokemonImageView)
+        view.addSubview(stepper)
+        view.addSubview(pokemonIDLabel)
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            pokemonNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            pokemonNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            pokemonNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            
+            pokemonImageView.topAnchor.constraint(equalTo: pokemonNameLabel.bottomAnchor, constant: 30),
+            pokemonImageView.widthAnchor.constraint(equalToConstant: 250),
+            pokemonImageView.heightAnchor.constraint(equalToConstant: 250),
+            pokemonImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            stepper.topAnchor.constraint(equalTo: pokemonImageView.bottomAnchor, constant: 30),
+            stepper.leadingAnchor.constraint(equalTo: pokemonImageView.leadingAnchor),
+            
+            pokemonIDLabel.centerYAnchor.constraint(equalTo: stepper.centerYAnchor),
+            pokemonIDLabel.leadingAnchor.constraint(equalTo: stepper.trailingAnchor, constant: 16),
+            pokemonIDLabel.trailingAnchor.constraint(equalTo: pokemonImageView.trailingAnchor)
+        ])
     }
 }
 
