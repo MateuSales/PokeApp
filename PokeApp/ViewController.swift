@@ -103,9 +103,10 @@ class ViewController: UIViewController {
     private func showAlert() {
         let alertController = UIAlertController(
             title: "Tivemos um problema :(",
-            message: "Tente novamente mais tarde",
+            message: "A requisição falhou, tente novamente mais tarde :)",
             preferredStyle: .alert
         )
+        
         alertController.addAction(.init(title: "OK", style: .default))
         present(alertController, animated: true)
     }
