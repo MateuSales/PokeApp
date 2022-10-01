@@ -147,19 +147,20 @@ class ViewController: UIViewController {
             pokemonNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             pokemonNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             pokemonNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
+
             pokemonImageView.topAnchor.constraint(equalTo: pokemonNameLabel.bottomAnchor, constant: 30),
             pokemonImageView.widthAnchor.constraint(equalToConstant: 250),
             pokemonImageView.heightAnchor.constraint(equalToConstant: 250),
             pokemonImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
+
             stepper.topAnchor.constraint(equalTo: pokemonImageView.bottomAnchor, constant: 30),
             stepper.leadingAnchor.constraint(equalTo: pokemonImageView.leadingAnchor),
-            
+
             pokemonIDLabel.centerYAnchor.constraint(equalTo: stepper.centerYAnchor),
             pokemonIDLabel.leadingAnchor.constraint(equalTo: stepper.trailingAnchor, constant: 16),
             pokemonIDLabel.trailingAnchor.constraint(equalTo: pokemonImageView.trailingAnchor)
         ])
+        
     }
 }
 

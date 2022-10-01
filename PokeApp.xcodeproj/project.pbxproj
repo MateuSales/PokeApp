@@ -83,6 +83,8 @@
 			dependencies = (
 			);
 			name = PokeApp;
+			packageProductDependencies = (
+			);
 			productName = PokeApp;
 			productReference = CEEE97F128C5895B0071BED0 /* PokeApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +113,8 @@
 				Base,
 			);
 			mainGroup = CEEE97E828C5895B0071BED0;
+			packageReferences = (
+			);
 			productRefGroup = CEEE97F228C5895B0071BED0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
