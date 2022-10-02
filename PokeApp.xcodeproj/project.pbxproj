@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE8A002028E9033C00AF6254 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A001F28E9033C00AF6254 /* CustomError.swift */; };
+		CE8A002328E9047100AF6254 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A002228E9047100AF6254 /* CustomLabel.swift */; };
+		CE8A002728E9093D00AF6254 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A002628E9093D00AF6254 /* Controller.swift */; };
 		CED1483828E3C6C000D37FB3 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1483728E3C6C000D37FB3 /* Pokemon.swift */; };
 		CEEE97F528C5895B0071BED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE97F428C5895B0071BED0 /* AppDelegate.swift */; };
 		CEEE97F728C5895B0071BED0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE97F628C5895B0071BED0 /* SceneDelegate.swift */; };
 		CEEE97F928C5895B0071BED0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE97F828C5895B0071BED0 /* ViewController.swift */; };
-		CEEE97FC28C5895B0071BED0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FA28C5895B0071BED0 /* Main.storyboard */; };
 		CEEE97FE28C5895C0071BED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FD28C5895C0071BED0 /* Assets.xcassets */; };
 		CEEE980128C5895C0071BED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEE97FF28C5895C0071BED0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE8A001F28E9033C00AF6254 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		CE8A002228E9047100AF6254 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		CE8A002628E9093D00AF6254 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		CED1483728E3C6C000D37FB3 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		CEEE97F128C5895B0071BED0 /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEE97F428C5895B0071BED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEE97F628C5895B0071BED0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CEEE97F828C5895B0071BED0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEEE97FB28C5895B0071BED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEEE97FD28C5895C0071BED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEEE980028C5895C0071BED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEEE980228C5895C0071BED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +43,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE8A002128E9046300AF6254 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				CE8A002228E9047100AF6254 /* CustomLabel.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		CE8A002428E9091D00AF6254 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEEE97F828C5895B0071BED0 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE8A002528E9093700AF6254 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE8A002628E9093D00AF6254 /* Controller.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		CEEE97E828C5895B0071BED0 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +86,13 @@
 		CEEE97F328C5895B0071BED0 /* PokeApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE8A002528E9093700AF6254 /* Controller */,
+				CE8A002428E9091D00AF6254 /* View */,
+				CE8A002128E9046300AF6254 /* CustomViews */,
 				CEEE97F428C5895B0071BED0 /* AppDelegate.swift */,
 				CEEE97F628C5895B0071BED0 /* SceneDelegate.swift */,
-				CEEE97F828C5895B0071BED0 /* ViewController.swift */,
 				CED1483728E3C6C000D37FB3 /* Pokemon.swift */,
-				CEEE97FA28C5895B0071BED0 /* Main.storyboard */,
+				CE8A001F28E9033C00AF6254 /* CustomError.swift */,
 				CEEE97FD28C5895C0071BED0 /* Assets.xcassets */,
 				CEEE97FF28C5895C0071BED0 /* LaunchScreen.storyboard */,
 				CEEE980228C5895C0071BED0 /* Info.plist */,
@@ -130,7 +160,6 @@
 			files = (
 				CEEE980128C5895C0071BED0 /* LaunchScreen.storyboard in Resources */,
 				CEEE97FE28C5895C0071BED0 /* Assets.xcassets in Resources */,
-				CEEE97FC28C5895B0071BED0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +170,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8A002028E9033C00AF6254 /* CustomError.swift in Sources */,
 				CEEE97F928C5895B0071BED0 /* ViewController.swift in Sources */,
 				CED1483828E3C6C000D37FB3 /* Pokemon.swift in Sources */,
 				CEEE97F528C5895B0071BED0 /* AppDelegate.swift in Sources */,
+				CE8A002328E9047100AF6254 /* CustomLabel.swift in Sources */,
 				CEEE97F728C5895B0071BED0 /* SceneDelegate.swift in Sources */,
+				CE8A002728E9093D00AF6254 /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEEE97FA28C5895B0071BED0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEEE97FB28C5895B0071BED0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CEEE97FF28C5895C0071BED0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,7 +319,6 @@
 				INFOPLIST_FILE = PokeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +345,6 @@
 				INFOPLIST_FILE = PokeApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
